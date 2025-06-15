@@ -60,7 +60,10 @@ const handleLogout = () => {
     Browse Tips
   </NavLink>
 </li>
-<li>
+
+    {
+      user && (<>
+        <li>
   <NavLink to="/share-garden-tip" className="hover:bg-[#73b21a] rounded hover:text-white">
     Share a Garden Tip
   </NavLink>
@@ -70,6 +73,9 @@ const handleLogout = () => {
     My Tips
   </NavLink>
 </li>
+        
+      </>)
+    }
 
     </>
   );
