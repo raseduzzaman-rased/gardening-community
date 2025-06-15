@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+.noto-serif{
+    font-family: "Noto Serif", serif;
+}
