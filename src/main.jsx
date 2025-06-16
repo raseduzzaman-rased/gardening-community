@@ -19,6 +19,7 @@ import GardeningTips from "./Component/Pages/GardeningTips.jsx";
 import SignUp from "./Component/Pages/SignUp.jsx";
 import ShareGardenTip from "./Component/Pages/ShareGardenTip.jsx";
 import TipsDetails from "./Component/Pages/TipsDetails.jsx";
+import NotFound from "./Component/Pages/NotFound.jsx";
 
 const router = createBrowserRouter([
   {
@@ -82,6 +83,11 @@ const router = createBrowserRouter([
         path: "/tips-details/:id",
         Component: TipsDetails,
       },
+      
+      {
+        path: '*',
+        element: <NotFound></NotFound>
+      }
     ],
   },
 ]);
