@@ -20,6 +20,7 @@ import TermsAndConditions from './Component/Pages/TermsAndConditions.jsx';
 import VisionMissionDetails from './Component/Pages/VisionMissionDetails.jsx';
 import GardeningTips from './Component/Pages/GardeningTips.jsx';
 import SignUp from './Component/Pages/SignUp.jsx';
+import ShareGardenTip from './Component/Pages/ShareGardenTip.jsx';
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
       {
         path: '/gardening-tips',
         Component: GardeningTips
+      },
+      {
+        path: '/share-garden-tip',
+        Component: ShareGardenTip
       }
     ]
   },
