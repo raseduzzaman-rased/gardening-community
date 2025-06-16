@@ -44,7 +44,8 @@ const ShareGardenTip = () => {
       .then((data) => {
         console.log("Server response:", data);
         if (data.insertedId) {
-            toast.success("Data Added Successfully");
+          toast.success("Data Added Successfully");
+          form.reset();
         }
       })
       .catch((error) => {
@@ -138,7 +139,7 @@ const ShareGardenTip = () => {
             Submit
           </button>
         </form>
-          <ToastContainer />
+        <ToastContainer />
       </div>
     </div>
   );
