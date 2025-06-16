@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { auth } from "../../Firebase/Firebase.init";
 import { onAuthStateChanged } from "firebase/auth";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 const ShareGardenTip = () => {
   const [user, setUser] = useState(null);
@@ -43,8 +43,8 @@ const ShareGardenTip = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("Server response:", data);
-        if (data.insertedID) {
-          toast.success("Data Added Successfully");
+        if (data.insertedId) {
+            toast.success("Data Added Successfully");
         }
       })
       .catch((error) => {
@@ -138,6 +138,7 @@ const ShareGardenTip = () => {
             Submit
           </button>
         </form>
+          <ToastContainer />
       </div>
     </div>
   );
