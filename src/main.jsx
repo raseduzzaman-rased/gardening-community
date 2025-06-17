@@ -42,7 +42,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-tips",
-        Component: MyTips,
+        element: (
+          <PrivateRoute>
+            <MyTips></MyTips>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
@@ -76,23 +80,23 @@ const router = createBrowserRouter([
         path: "/gardening-tips",
         Component: GardeningTips,
       },
-     {
-  path: "/share-garden-tip",
-  element: (
-    <PrivateRoute>
-      <ShareGardenTip />
-    </PrivateRoute>
-  )
-},
+      {
+        path: "/share-garden-tip",
+        element: (
+          <PrivateRoute>
+            <ShareGardenTip />
+          </PrivateRoute>
+        ),
+      },
       {
         path: "/tips-details/:id",
         Component: TipsDetails,
       },
-      
+
       {
-        path: '*',
-        element: <NotFound></NotFound>
-      }
+        path: "*",
+        element: <NotFound></NotFound>,
+      },
     ],
   },
 ]);
