@@ -1,8 +1,45 @@
 import React from "react";
 import { Link, useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
-const MyTipsCard = ({ tip }) => {
+const MyTipsCard = ({ tip, tips, setTips }) => {
   const navigate = useNavigate();
+
+  const handleDelete = (e, id) => {
+    e.preventDefault();
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/my-tips/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("after delete", data);
+            if (data.deletedCount) {
+              const remainingUsers = tips.filter(
+                (singleTip) => singleTip._id !== id
+              );
+              setTips(remainingUsers);
+
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+            }
+          });
+      }
+    });
+  };
 
   return (
     <tr>
@@ -32,7 +69,7 @@ const MyTipsCard = ({ tip }) => {
         </Link>
 
         <button
-          onClick={() => handleTipDetails(tip._id)}
+          onClick={(e) => handleDelete(e, tip._id)}
           className="btn btn-ghost btn-xs bg-[#73B21A] text-white hover:bg-[#008236]"
         >
           Delete

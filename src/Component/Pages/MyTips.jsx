@@ -30,7 +30,7 @@ const MyTips = () => {
          <tbody>
           {
           tips.map((tip, index) => (
-            <MyTipsCard key={index} tip={tip} index={index} />
+            <MyTipsCard key={index} tips={tips} setTips={setTips} tip={tip} index={index} />
           ))
           }
         </tbody>
