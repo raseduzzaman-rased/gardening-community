@@ -12,7 +12,7 @@ const TipDetails = () => {
   }, [id]);
 
   if (!tip) {
-    return <p className="text-center mt-10">Loading...</p>;
+    return <p className="text-center mt-10"><span className="loading loading-dots loading-xl"></span></p>;
   }
 
   return (

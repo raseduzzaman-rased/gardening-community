@@ -1,19 +1,12 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router";
 
-const BrowseTipCard = ({ tip }) => {
+const MyTipsCard = ({ tip }) => {
   const navigate = useNavigate();
-  const handleTipDetails = (id) => {
-    navigate(`/tips-details/${id}`);
-  };
 
   return (
     <tr>
-      <th>
-        <label>
-          <input type="checkbox" className="checkbox" />
-        </label>
-      </th>
+      <th></th>
       <td>
         <div className="flex items-center gap-3">
           <div className="avatar">
@@ -28,17 +21,25 @@ const BrowseTipCard = ({ tip }) => {
         </div>
       </td>
       <td>{tip.plantType}</td>
+      <td>{tip.availability}</td>
       <td>{tip.category}</td>
       <th>
+        <Link
+          to={`/update-tip-details/${tip._id}`}
+          className="mr-4 btn btn-ghost btn-xs bg-[#73B21A] text-white hover:bg-[#008236]"
+        >
+          Edit
+        </Link>
+
         <button
-          onClick={() => handleTipDetails(tip._id)} 
+          onClick={() => handleTipDetails(tip._id)}
           className="btn btn-ghost btn-xs bg-[#73B21A] text-white hover:bg-[#008236]"
         >
-          details
+          Delete
         </button>
       </th>
     </tr>
   );
 };
 
-export default BrowseTipCard;
+export default MyTipsCard;

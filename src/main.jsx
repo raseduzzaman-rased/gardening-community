@@ -22,6 +22,7 @@ import TipsDetails from "./Component/Pages/TipsDetails.jsx";
 import NotFound from "./Component/Pages/NotFound.jsx";
 import PrivateRoute from "./Component/Pages/PrivateRoute.jsx";
 import TipDetails from "./Component/Pages/TipsDetails.jsx";
+import UpdateTipDetails from "./Component/Pages/UpdateTipDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -97,11 +98,16 @@ const router = createBrowserRouter([
           </PrivateRoute>
         )
       },
-
+      {
+        path: '/update-tip-details/:id',
+        loader: ({params}) => fetch(`http://localhost:3000/update-tip-details/${params.id}`),
+        element: <UpdateTipDetails></UpdateTipDetails>
+      },
       {
         path: "*",
         element: <NotFound></NotFound>,
       },
+      
     ],
   },
 ]);
