@@ -6,6 +6,7 @@ import Gallary from './Gallary';
 import VisionMission from './VisionMission';
 import GardeningTips from './GardeningTips';
 
+
 const Home = () => {
     const  gardeners  = useLoaderData(); 
     console.log(gardeners);

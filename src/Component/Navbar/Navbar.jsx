@@ -7,6 +7,7 @@ import { auth } from "../../Firebase/Firebase.init";
 import { useEffect, useState } from "react";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
+import Typewriting from "../Pages/Typewriting";
 
 
 
@@ -113,7 +114,8 @@ const handleLogout = () => {
           <img className="w-12" src={logo} alt="" />
           <div className="">
             <p className="hidden md:block lg:block">
-              Gardening <span className="text-[#73B21A]">Community</span>
+              {/* Gardening <span className="text-[#73B21A]">Community</span> */}
+              <Typewriting></Typewriting>
             </p>
           </div>
         </div>
