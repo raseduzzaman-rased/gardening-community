@@ -24,7 +24,10 @@ const ExploreGardenersCard = ({ profile }) => {
             <span className="font-bold">Experience:</span> {profile.experiences}
           </p>
           <p>{profile.otherInfo}</p>
-          <div className="card-actions justify-end mt-6">
+          <div className="card-actions justify-center mt-6">
+            <div className="badge badge-outline  hover:bg-green-700 hover:text-white">
+              Shared Tips: {profile.totalSharedTips}
+            </div>
             <div className="badge badge-outline  hover:bg-green-700 hover:text-white">
               Age: {profile.age}
             </div>
