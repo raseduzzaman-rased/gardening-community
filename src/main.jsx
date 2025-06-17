@@ -20,6 +20,7 @@ import SignUp from "./Component/Pages/SignUp.jsx";
 import ShareGardenTip from "./Component/Pages/ShareGardenTip.jsx";
 import TipsDetails from "./Component/Pages/TipsDetails.jsx";
 import NotFound from "./Component/Pages/NotFound.jsx";
+import PrivateRoute from "./Component/Pages/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -75,10 +76,14 @@ const router = createBrowserRouter([
         path: "/gardening-tips",
         Component: GardeningTips,
       },
-      {
-        path: "/share-garden-tip",
-        Component: ShareGardenTip,
-      },
+     {
+  path: "/share-garden-tip",
+  element: (
+    <PrivateRoute>
+      <ShareGardenTip />
+    </PrivateRoute>
+  )
+},
       {
         path: "/tips-details/:id",
         Component: TipsDetails,
