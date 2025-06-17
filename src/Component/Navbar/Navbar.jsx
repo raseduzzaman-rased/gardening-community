@@ -9,75 +9,80 @@ import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 import Typewriting from "../Pages/Typewriting";
 
-
-
-
 const Navbar = () => {
+  const navigate = useNavigate();
 
-const navigate = useNavigate();
+  const [user, setUser] = useState(null);
 
-const [user, setUser] = useState(null);
-
-useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
-
-  return () => unsubscribe();
-}, []);
-
-// signout 
-const handleLogout = () => {
-  signOut(auth)
-    .then(() => {
-      console.log("User signed out");
-      navigate('/login')
-      toast.success("Logged out successfully");
-      
-    })
-    .catch((error) => {
-      console.error("Logout error:", error);
-      toast.error("Something went wrong during logout");
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
     });
-};
 
+    return () => unsubscribe();
+  }, []);
 
+  // signout
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("User signed out");
+        navigate("/login");
+        toast.success("Logged out successfully");
+      })
+      .catch((error) => {
+        console.error("Logout error:", error);
+        toast.error("Something went wrong during logout");
+      });
+  };
 
   const items = (
     <>
-    
-     <li>
-  <NavLink to="/home" className="hover:bg-[#73b21a] rounded hover:text-white">
-    Home
-  </NavLink>
-</li>
-<li>
-  <NavLink to="/explore-gardeners" className="hover:bg-[#73b21a] rounded hover:text-white">
-    Explore Gardeners
-  </NavLink>
-</li>
-<li>
-  <NavLink to="/browse-tips" className="hover:bg-[#73b21a] rounded hover:text-white">
-    Browse Tips
-  </NavLink>
-</li>
+      <li>
+        <NavLink
+          to="/home"
+          className="hover:bg-[#73b21a] rounded hover:text-white"
+        >
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/explore-gardeners"
+          className="hover:bg-[#73b21a] rounded hover:text-white"
+        >
+          Explore Gardeners
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/browse-tips"
+          className="hover:bg-[#73b21a] rounded hover:text-white"
+        >
+          Browse Tips
+        </NavLink>
+      </li>
 
-    {
-      user && (<>
-        <li>
-  <NavLink to="/share-garden-tip" className="hover:bg-[#73b21a] rounded hover:text-white">
-    Share a Garden Tip
-  </NavLink>
-</li>
-<li>
-  <NavLink to="/my-tips" className="hover:bg-[#73b21a] rounded hover:text-white">
-    My Tips
-  </NavLink>
-</li>
-        
-      </>)
-    }
-
+      {user && (
+        <>
+          <li>
+            <NavLink
+              to="/share-garden-tip"
+              className="hover:bg-[#73b21a] rounded hover:text-white"
+            >
+              Share a Garden Tip
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/my-tips"
+              className="hover:bg-[#73b21a] rounded hover:text-white"
+            >
+              My Tips
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 
@@ -109,18 +114,17 @@ const handleLogout = () => {
             {items}
           </ul>
         </div>
-       <a href="/">
-     <div className="flex items-center gap-2 text-xl font-bold font-[nato-serif]">
-          <img className="w-12" src={logo} alt="" />
-          <div className="">
-            <p className="hidden md:block lg:block">
-              {/* Gardening <span className="text-[#73B21A]">Community</span> */}
-              <Typewriting></Typewriting>
-            </p>
+        <a href="/">
+          <div className="flex items-center gap-2 text-xl font-bold font-[nato-serif]">
+            <img className="w-12" src={logo} alt="" />
+            <div className="">
+              <p className="hidden md:block lg:block">
+                {/* Gardening <span className="text-[#73B21A]">Community</span> */}
+                <Typewriting></Typewriting>
+              </p>
+            </div>
           </div>
-        </div>
-
-       </a>
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-2 font-[nato-serif] font-bold text-lg">
@@ -128,25 +132,41 @@ const handleLogout = () => {
         </ul>
       </div>
       <div className="navbar-end gap-2 font-[nato-serif] font-bold text-lg">
-      {
-  user ? (
-    <>
-      <div className="avatar">
-  <div className="ring-primary ring-offset-base-100 w-10 mr-2 rounded-full ring-2 ring-offset-2">
-    <img  title={user?.displayName || ""} className="" src={user.photoURL} />
-  </div>
-</div>
-      <Link onClick={handleLogout} to='/logout' className="btn bg-[#73B21A] text-white hover:bg-[#f2f8ec] hover:text-black">Logout</Link>
-    </>
-  ) : (
-    <>
-      <Link to='/login' className="btn bg-[#73B21A] text-white hover:bg-[#f2f8ec] hover:text-black">Login</Link>
-      <Link to='/signup' className="btn bg-[#73B21A] text-white hover:bg-[#f2f8ec] hover:text-black">SignUp</Link>
-    </>
-  )
-}
-
-       
+        {user ? (
+          <>
+            <div className="avatar">
+              <div className="ring-primary ring-offset-base-100 w-10 mr-2 rounded-full ring-2 ring-offset-2">
+                <img
+                  title={user?.displayName || ""}
+                  className=""
+                  src={user.photoURL}
+                />
+              </div>
+            </div>
+            <Link
+              onClick={handleLogout}
+              to="/logout"
+              className="btn bg-[#73B21A] text-white hover:bg-[#f2f8ec] hover:text-black"
+            >
+              Logout
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link
+              to="/login"
+              className="btn bg-[#73B21A] text-white hover:bg-[#f2f8ec] hover:text-black"
+            >
+              Login
+            </Link>
+            <Link
+              to="/signup"
+              className="btn bg-[#73B21A] text-white hover:bg-[#f2f8ec] hover:text-black"
+            >
+              SignUp
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

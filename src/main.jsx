@@ -21,6 +21,7 @@ import ShareGardenTip from "./Component/Pages/ShareGardenTip.jsx";
 import TipsDetails from "./Component/Pages/TipsDetails.jsx";
 import NotFound from "./Component/Pages/NotFound.jsx";
 import PrivateRoute from "./Component/Pages/PrivateRoute.jsx";
+import TipDetails from "./Component/Pages/TipsDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
       {
         index: true,
         loader: () => fetch("http://localhost:3000/gardeners"),
-        Component: Home,
+        Component: Home
       },
       {
         path: "/browse-tips",
@@ -90,7 +91,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/tips-details/:id",
-        Component: TipsDetails,
+        element: (
+          <PrivateRoute>
+            <TipDetails></TipDetails>
+          </PrivateRoute>
+        )
       },
 
       {
