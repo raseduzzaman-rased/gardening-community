@@ -40,7 +40,7 @@ const Navbar = () => {
     <>
       <li>
         <NavLink
-          to="/home"
+          to="/"
           className="hover:bg-[#73b21a] rounded hover:text-white"
         >
           Home
