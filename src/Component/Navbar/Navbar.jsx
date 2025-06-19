@@ -42,7 +42,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className="hover:bg-[#73b21a] rounded hover:text-white"
+          className="text-black hover:bg-[#73b21a] rounded hover:text-white"
         >
           Home
         </NavLink>
@@ -50,7 +50,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/explore-gardeners"
-          className="hover:bg-[#73b21a] rounded hover:text-white"
+          className="text-black hover:bg-[#73b21a] rounded hover:text-white"
         >
           Explore Gardeners
         </NavLink>
@@ -58,7 +58,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/browse-tips"
-          className="hover:bg-[#73b21a] rounded hover:text-white"
+          className="text-black hover:bg-[#73b21a] rounded hover:text-white"
         >
           Browse Tips
         </NavLink>
@@ -70,7 +70,7 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/share-garden-tip"
-              className="hover:bg-[#73b21a] rounded hover:text-white"
+              className="text-black hover:bg-[#73b21a] rounded hover:text-white"
             >
               Share a Garden Tip
             </NavLink>
@@ -78,7 +78,7 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/my-tips"
-              className="hover:bg-[#73b21a] rounded hover:text-white"
+              className="text-black hover:bg-[#73b21a] rounded hover:text-white"
             >
               My Tips
             </NavLink>
@@ -90,7 +90,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar shadow-sm px-12 bg-[#f2f8ec]">
+    <div className="navbar shadow-sm px-12 bg-[#f2f8ec] dark:bg-gray-900 dark:text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
