@@ -1,7 +1,7 @@
 import React from "react";
 
 const ExploreGardenersCard = ({ profile }) => {
-  console.log(profile);
+ 
   return (
     <div className="">
       <div className="card bg-base-100 w-full  shadow-sm">

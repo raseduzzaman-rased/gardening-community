@@ -9,7 +9,7 @@ import GardeningTips from './GardeningTips';
 
 const Home = () => {
     const  gardeners  = useLoaderData(); 
-    console.log(gardeners);
+   
 
     return (
         <div>

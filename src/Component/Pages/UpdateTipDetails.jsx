@@ -5,7 +5,6 @@ import { toast, ToastContainer } from "react-toastify";
 
 const UpdateTipDetails = () => {
   const user = useLoaderData();
-  console.log(user);
 
   const handleUpdateUser = (e) => {
     e.preventDefault();

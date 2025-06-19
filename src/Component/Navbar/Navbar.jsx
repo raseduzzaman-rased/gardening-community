@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 import Typewriting from "../Pages/Typewriting";
+import Dark from "../Pages/Dark";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -63,6 +64,7 @@ const Navbar = () => {
         </NavLink>
       </li>
 
+      
       {user && (
         <>
           <li>
@@ -84,6 +86,7 @@ const Navbar = () => {
         </>
       )}
     </>
+    
   );
 
   return (
@@ -167,6 +170,7 @@ const Navbar = () => {
             </Link>
           </>
         )}
+      <Dark></Dark>
       </div>
     </div>
   );
