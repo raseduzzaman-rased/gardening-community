@@ -6,7 +6,7 @@ const GardeningTips = () => {
     
 
   useEffect(() => {
-    fetch("http://localhost:3000/gardening-tips")
+    fetch("https://gardening-community-server-kappa.vercel.app/gardening-tips")
       .then(res => res.json())
       .then(data => {
         setTips(data);

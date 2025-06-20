@@ -31,7 +31,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch("http://localhost:3000/gardeners"),
+        loader: () => fetch("https://gardening-community-server-kappa.vercel.app/gardeners"),
         Component: Home
       },
       {
@@ -100,7 +100,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/update-tip-details/:id',
-        loader: ({params}) => fetch(`http://localhost:3000/update-tip-details/${params.id}`),
+        loader: ({params}) => fetch(`https://gardening-community-server-kappa.vercel.app/update-tip-details/${params.id}`),
         element: <UpdateTipDetails></UpdateTipDetails>
       },
       {

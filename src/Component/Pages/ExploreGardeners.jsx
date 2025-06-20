@@ -6,7 +6,7 @@ const ExploreGardeners = () => {
     const [profiles, setProfiles] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/profile')
+        fetch('https://gardening-community-server-kappa.vercel.app/profile')
         .then(res => res.json())
         .then(data => setProfiles(data))
     }, []);

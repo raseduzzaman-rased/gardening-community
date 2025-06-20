@@ -5,7 +5,7 @@ const BrowseTips = () => {
   const [tips, setTips] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/submit-tip")
+    fetch("https://gardening-community-server-kappa.vercel.app/submit-tip")
       .then((res) => res.json())
       .then((data) => {
         const publicTips = data.filter((tip) => tip.availability === "Public");

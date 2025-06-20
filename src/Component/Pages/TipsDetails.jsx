@@ -6,7 +6,7 @@ const TipDetails = () => {
   const [tip, setTip] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/submit-tip/${id}`)
+    fetch(`https://gardening-community-server-kappa.vercel.app/submit-tip/${id}`)
       .then((res) => res.json())
       .then((data) => setTip(data));
   }, [id]);

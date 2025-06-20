@@ -4,7 +4,7 @@ import { Typewriter } from 'react-simple-typewriter';
 const Typewriting = () => {
   return (
     <div className="App">
-      <h1>
+      <h1 className='text-black'>
         Gardening{' '}
         <span style={{ color: '#73B21A', fontWeight: 'bold' }}>
           <Typewriter

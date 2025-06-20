@@ -24,7 +24,7 @@ const UpdateTipDetails = () => {
 
     console.log(formData);
 
-    fetch(`http://localhost:3000/update-tip-details/${user._id}`, {
+    fetch(`https://gardening-community-server-kappa.vercel.app/update-tip-details/${user._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

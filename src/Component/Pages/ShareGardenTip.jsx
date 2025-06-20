@@ -34,7 +34,7 @@ const ShareGardenTip = () => {
     console.log(formData);
 
     // sent data to server
-    fetch("http://localhost:3000/submit-tip", {
+    fetch("https://gardening-community-server-kappa.vercel.app/submit-tip", {
       method: "POST",
       headers: {
         "content-type": "application/json",
